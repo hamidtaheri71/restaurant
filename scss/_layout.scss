@@ -1,0 +1,274 @@
+
+
+.navbar{
+    position: relative;
+    z-index: 200;
+
+    &-navigation{
+        display: flex;
+
+        &-left{
+            width: 50%;
+            height: 100vh;
+            background-color: $color-dark;
+            position: fixed;
+            left: -50vw;
+            transition: left .8s cubic-bezier(1,0,0,1);
+
+            .left-img{
+                @media (max-width:380px) {
+                    width: 70%;
+                }
+                @media (max-width:414px) {
+                    width: 75%;
+                }
+                width: 50%;
+                position: absolute;
+                box-shadow: 0 15px 60px rgba($color: #000000, $alpha: .4);
+                opacity: .7;
+                border-radius: 10px;
+            }
+
+            .left-img-1{
+                @media (max-width:380px) {
+                    top: 31%;
+                    left:15%;
+                }
+                @media (max-width:700px) {
+                    top: 27%;
+                    left:10%;
+                }
+                top:15%;
+                left: 15%;
+            }
+
+            .left-img-2{
+                @media (max-width:380px) {
+                    top: 47%;
+                    left:15%;
+                }
+                @media (max-width:700px) {
+                    top: 44%;
+                    left:10%;
+                }
+                top:35%;
+                left: 25%;
+            }
+
+            .left-img-3{
+                @media (max-width:380px) {
+                    top: 63%;
+                    left:15%;
+                }
+                @media (max-width:700px) {
+                    top: 62%;
+                    left:10%;
+                }
+                top:55%;
+                left: 35%;
+            }
+        }
+
+        &-right{
+            width: 50%;
+            height: 100vh;
+            background-color: #1f1d1f;
+            position: fixed;
+            right: -50vw;
+            @include flexcenter;
+            transition: right .8s cubic-bezier(1,0,0,1)
+        }
+
+        .nav-list{
+            &-item{
+                list-style: none;
+                letter-spacing: 4px;
+            }
+
+            &-link{
+                @media (max-width:380px) {
+                    font-size: 23px;
+                }
+                @media (max-width:450px) {
+                    font-size: 20px;
+                }
+                font-family: $font-sahel;
+                font-size: 30px;
+                @include textStyles;
+                color: $color-secondary;
+                text-decoration: none;
+                display: block;
+                margin: 20px;
+                text-align: center;
+                transition: all .5s;
+
+                &:hover{
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+}
+
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-left{
+    left: 0;
+}
+
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-right{
+    right: 0;
+}
+
+.checkbox:checked ~ .hamburger-menu .menu{
+    transform: rotateZ(90deg);
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-1{
+    transform: rotateZ(-40deg);
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-2{
+    opacity: 0;
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-3{
+    transform: rotateZ(40deg);
+}
+
+.header{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(rgba($color-black,0.8),rgba($color-black,0.6)) ,url(/image/bg.jpeg) ;
+    background-size: cover;
+    .brand{
+        @include centering(15%);
+        display: flex;
+        align-items: center;
+    }
+    &-banner{
+        text-align: center; 
+        @include centering(50%);
+    }
+}
+
+.about-us{ 
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    padding-bottom: 50px;
+    @media (max-width:380px) {
+        display: none;
+    }
+    @media (max-width:414px) {
+        padding-top: 20px;
+    }
+
+    .about-us-left{
+        width: 40%;
+
+        .main-heading{
+            width: 100%;
+            opacity: .5;
+        }
+    }
+    .about-us-right{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 50px;
+        box-sizing: border-box;
+
+        .main-heading{
+            @media (max-width:414px) {
+                padding-top: 20px;
+                font-size: 25px;
+            }
+            font-size: 40px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .sub-heading{
+            font-size: 25px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .stars{
+            margin: 20px 0;
+            font-size: 10px;
+            color: $color-primary;
+        }
+
+        .description{
+            font-family: $font-nastaliq;
+            font-size: 15px;
+            color: $color-secondary ;
+            direction: rtl;
+            text-align: justify;
+
+            &::first-letter{
+                margin-right: 15px;
+            }
+        }
+        .main-btn{
+            width: 100px ;
+        }
+    }
+}
+
+.gallery{
+    @media (max-width:414px) {
+        padding-top: 30px;
+    }
+    .cards-wraper{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.footer{
+    padding: 70px 20px;
+    @include flexcenter;
+    flex-direction: column;
+    &-header{
+        display: flex;
+        align-items: center;
+        margin-bottom: 70px;
+        &-copyright{
+            align-items: center;
+            align-content: center;
+        }
+    }
+    .social-media{
+        display: flex;
+        width: 300px;
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+        &-item{
+            list-style: none;
+        }
+
+        &-link{
+            text-decoration: none;
+            
+        }
+        .fafa-facebook-square{
+            font-size: 40px;
+            color:$color-secondary;
+            transition: color .7s;
+            &:hover{
+                color: $color-primary;
+            }
+        }
+    }
+
+    &-copyright-paragrap{
+        font-family: $font-sahel;
+        font-size: 20px;
+        color: $color-secondary;
+        direction: rtl;
+    }
+
+}
